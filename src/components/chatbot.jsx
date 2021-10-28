@@ -54,7 +54,7 @@ class AttractionSuggestionChatBot extends Component {
             steps={[
               {
                 id: "1",
-                message: "Hi, can't decide on where to go?",
+                message: "Hi, can't decide where to go?",
                 trigger: "2",
               },
               {

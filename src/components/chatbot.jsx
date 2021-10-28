@@ -1,97 +1,152 @@
 import React, { Component } from "react";
 import ChatBot from "react-simple-chatbot";
+import { ThemeProvider } from "styled-components";
 
-const BMI = (props) => {
-  const { steps } = props;
-  const height = steps.height.value;
-  const weight = steps.weight.value;
-  const bmi = Number(((weight / (height * height)) * 10000).toFixed(1));
-  let result = "Underweight";
-
-  if (bmi >= 18.5 && bmi < 25) {
-    result = "Normal weight";
-  } else if (bmi >= 25 && bmi < 30) {
-    result = "Overweight";
-  } else if (bmi >= 30) {
-    result = "Obesity";
-  }
-
-  return (
-    <div className="test">
-      Your BMI is {bmi} ({result})
-    </div>
-  );
+const theme = {
+  background: "#f5f8fb",
+  headerBgColor: "#198524",
+  headerFontColor: "#fff",
+  headerFontSize: "15px",
+  botBubbleColor: "#198524",
+  botFontColor: "#fff",
+  userBubbleColor: "#fff",
+  userFontColor: "#4a4a4a",
 };
 
-BMI.propTypes = {
-  steps: PropTypes.object,
-};
-
-BMI.defaultProps = {
-  steps: undefined,
-};
-
-class BMIExample extends Component {
+class AttractionSuggestion extends Component {
   render() {
-    function validator(value) {
-      if (isNaN(value)) {
-        return "value should be a number";
-      } else if (value < 0) {
-        return "value should be positive";
-      }
+    const { steps, attractions } = this.props;
+    const location = steps.location.value;
 
-      return true;
-    }
+    const filteredAttraction =
+      location !== "All Counties"
+        ? attractions.filter((a) => a.address.addressRegion === location)
+        : attractions;
 
+    const randomAttraction =
+      filteredAttraction[Math.floor(Math.random() * filteredAttraction.length)];
+
+    return <div id="randomAttraction">{randomAttraction.name}</div>;
+  }
+}
+
+class AttractionSuggestionChatBot extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      attractions: this.props.attractions,
+    };
+  }
+  render() {
     return (
-      <ChatBot
-        steps={[
-          {
-            id: "1",
-            message: "Welcome to react chatbot!",
-            trigger: "2",
-          },
-          {
-            id: "2",
-            message: "Let's calculate your BMI (Body Mass Index)",
-            trigger: "3",
-          },
-          {
-            id: "3",
-            message: "Please type your height (cm)",
-            trigger: "height",
-          },
-          {
-            id: "height",
-            user: true,
-            trigger: "4",
-            validator,
-          },
-          {
-            id: "4",
-            message: "Please type your weight (kg)",
-            trigger: "weight",
-          },
-          {
-            id: "weight",
-            user: true,
-            trigger: "5",
-            validator,
-          },
-          {
-            id: "5",
-            message: "Thanks! Check out your BMI",
-            trigger: "6",
-          },
-          {
-            id: "6",
-            component: <BMI />,
-            end: true,
-          },
-        ]}
-      />
+      <ThemeProvider theme={theme}>
+        <div id="chatBot">
+          <ChatBot
+            steps={[
+              {
+                id: "1",
+                message: "Hi, confused on where to go?",
+                trigger: "2",
+              },
+              {
+                id: "2",
+                options: [{ value: 1, label: "Yes", trigger: 3 }],
+              },
+              {
+                id: "3",
+                message: "Don't worry, I can help you!",
+                trigger: "4",
+              },
+              {
+                id: "4",
+                message:
+                  "I will give you an attraction suggestion based on your preferences :)",
+                trigger: "5",
+              },
+              {
+                id: "5",
+                message: "First of all, where are you going?",
+                trigger: "location",
+              },
+              {
+                id: "location",
+                options: [
+                  { value: "All Counties", label: "Anywhere", trigger: "6" },
+                  { value: "Carlow", label: "Carlow", trigger: "6" },
+                  { value: "Clare", label: "Clare", trigger: "6" },
+                  { value: "Cork", label: "Cork", trigger: "6" },
+                  { value: "Donegal", label: "Donegal", trigger: "6" },
+                  { value: "Dublin", label: "Dublin", trigger: "6" },
+                  { value: "Galway", label: "Galway", trigger: "6" },
+                  { value: "Kerry", label: "Kerry", trigger: "6" },
+                  { value: "Kilkenny", label: "Kilkenny", trigger: "6" },
+                  { value: "Leitrim", label: "Leitrim", trigger: "6" },
+                  { value: "Limerick", label: "Limerick", trigger: "6" },
+                  { value: "Mayo", label: "Mayo", trigger: "6" },
+                  { value: "Sligo", label: "Sligo", trigger: "6" },
+                  { value: "Waterford", label: "Waterford", trigger: "6" },
+                  { value: "Wexford", label: "Wexford", trigger: "6" },
+                  { value: "Wicklow", label: "Wicklow", trigger: "6" },
+                ],
+              },
+              {
+                id: "6",
+                message: "What type of attractions are you interested in?",
+                trigger: "type",
+              },
+              {
+                id: "type",
+                options: [
+                  { value: "Anything", label: "Anything", trigger: "7" },
+                  {
+                    value: "LandmarksOrHistoricalBuildings",
+                    label: "Landmark / Historical Building",
+                    trigger: "7",
+                  },
+                  { value: "Landform", label: "Landform", trigger: "7" },
+                  { value: "Museum", label: "Museum", trigger: "7" },
+                  {
+                    value: "CafeOrCoffeeShop",
+                    label: "Cafe / Coffee Shop",
+                    trigger: "7",
+                  },
+                  { value: "Beach", label: "Beach", trigger: "7" },
+                  { value: "Sculpture", label: "Sculpture", trigger: "7" },
+                  { value: "ArtGallery", label: "Art Gallery", trigger: "7" },
+                  {
+                    value: "ShoppingCenter",
+                    label: "Shopping Center",
+                    trigger: "7",
+                  },
+                  {
+                    value: "SportsActivityLocation",
+                    label: "Sports Activity",
+                    trigger: "7",
+                  },
+                  {
+                    value: "FoodEstablishment",
+                    label: "Food Establishment",
+                    trigger: "7",
+                  },
+                ],
+              },
+              {
+                id: "7",
+                message: "Here is my suggestion: ",
+                trigger: "8",
+              },
+              {
+                id: "8",
+                component: (
+                  <AttractionSuggestion attractions={this.state.attractions} />
+                ),
+              },
+            ]}
+          />
+        </div>
+      </ThemeProvider>
     );
   }
 }
 
-export default BMIExample;
+export default AttractionSuggestionChatBot;

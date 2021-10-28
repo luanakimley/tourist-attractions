@@ -1,6 +1,7 @@
 import React from "react";
 import Attractions from "./components/attractions";
 import NavBar from "./components/navbar";
+import AttractionSuggestionChatBot from "./components/chatbot";
 
 class App extends React.Component {
   state = {
@@ -9,6 +10,7 @@ class App extends React.Component {
     counties: [],
     selectedCounty: "All Counties",
     selectedAttractions: null,
+    chat: false,
   };
 
   async componentDidMount() {
@@ -68,6 +70,14 @@ class App extends React.Component {
     }
   };
 
+  handleChatClick = (e) => {
+    this.toggleChat();
+  };
+
+  toggleChat() {
+    this.setState({ chat: !this.state.chat });
+  }
+
   render() {
     return this.state.loading ? (
       <div className="d-flex align-items-center justify-content-center">
@@ -92,6 +102,16 @@ class App extends React.Component {
             <p>No results found.</p>
             <i className="bi bi-x-circle-fill"></i>
           </div>
+        ) : null}
+        <button
+          onClick={this.handleChatClick}
+          className="btn btn-light"
+          id="chatButton"
+        >
+          <i className="bi bi-chat-text-fill"></i>
+        </button>
+        {this.state.chat ? (
+          <AttractionSuggestionChatBot attractions={this.state.attractions} />
         ) : null}
       </div>
     );

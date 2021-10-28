@@ -34,8 +34,8 @@ $red: #d92616;
 
   i {
     position: absolute;
-    right: 5px;
-    top: 2px;
+    right: 3px;
+    top: 1px;
     background-color: white;
     padding-left: 5px;
   }
@@ -97,7 +97,7 @@ $red: #d92616;
   color: white;
   background-color: $green;
   padding: 20px;
-  padding-top: 30px;
+  padding-top: 22px;
   text-align: center;
   font-size: 13px;
   box-shadow: 0 0 29px 0 rgba(18, 66, 101, 0.08);
@@ -127,7 +127,7 @@ $red: #d92616;
   }
 
   label {
-    margin-top: 3px;
+    margin-top: 2px;
   }
 
   button {
@@ -153,6 +153,37 @@ $red: #d92616;
 
 #countyTitle {
   margin-top: 100px;
+}
+
+#chatButton {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: $green;
+  i {
+    font-size: 25px;
+    position: absolute;
+    top: 3px;
+    left: 14px;
+    color: white;
+  }
+}
+
+#chatBot {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -225px;
+  margin-left: -175px;
+  z-index: 999;
+  color: white;
+}
+
+#randomAttraction {
+  color: #4a4a4a;
 }
 
 /**

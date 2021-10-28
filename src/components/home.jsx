@@ -41,7 +41,10 @@ class Home extends Component {
           <i className="bi bi-chat-text-fill"></i>
         </button>
         {this.state.chat ? (
-          <AttractionSuggestionChatBot attractions={this.state.attractions} />
+          <AttractionSuggestionChatBot
+            attractions={this.state.attractions}
+            closeChat={this.handleChatClick}
+          />
         ) : null}
       </div>
     );

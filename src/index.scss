@@ -63,8 +63,8 @@ $red: #d92616;
     position: absolute;
     right: 0;
     color: $red;
-    top: 60px;
-    font-size: 20px;
+    top: 55px;
+    font-size: 25px;
     cursor: pointer;
   }
 
@@ -181,6 +181,15 @@ $red: #d92616;
   margin-left: -175px;
   z-index: 999;
   color: white;
+
+  i {
+    position: absolute;
+    z-index: 1000;
+    font-size: 30px;
+    top: 0;
+    right: 2px;
+    cursor: pointer;
+  }
 }
 
 #randomAttraction {

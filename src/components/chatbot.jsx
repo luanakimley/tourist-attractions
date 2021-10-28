@@ -17,16 +17,24 @@ class AttractionSuggestion extends Component {
   render() {
     const { steps, attractions } = this.props;
     const location = steps.location.value;
+    const type = steps.type.value;
 
-    const filteredAttraction =
+    const filteredByLocation =
       location !== "All Counties"
         ? attractions.filter((a) => a.address.addressRegion === location)
         : attractions;
 
-    const randomAttraction =
-      filteredAttraction[Math.floor(Math.random() * filteredAttraction.length)];
+    const filteredByType =
+      type !== "Anything"
+        ? filteredByLocation.filter((a) => a["@type"].includes(type))
+        : filteredByLocation;
 
-    return <div id="randomAttraction">{randomAttraction.name}</div>;
+    const randomAttraction =
+      filteredByType.length > 0
+        ? filteredByType[Math.floor(Math.random() * filteredByType.length)].name
+        : "No results found. Try another option!";
+
+    return <div id="randomAttraction">{randomAttraction}</div>;
   }
 }
 
@@ -41,11 +49,12 @@ class AttractionSuggestionChatBot extends Component {
     return (
       <ThemeProvider theme={theme}>
         <div id="chatBot">
+          <i className="bi bi-x" onClick={this.props.closeChat}></i>
           <ChatBot
             steps={[
               {
                 id: "1",
-                message: "Hi, confused on where to go?",
+                message: "Hi, can't decide on where to go?",
                 trigger: "2",
               },
               {
@@ -132,7 +141,7 @@ class AttractionSuggestionChatBot extends Component {
               },
               {
                 id: "7",
-                message: "Here is my suggestion: ",
+                message: "Thanks! Here is my suggestion: ",
                 trigger: "8",
               },
               {
@@ -140,6 +149,7 @@ class AttractionSuggestionChatBot extends Component {
                 component: (
                   <AttractionSuggestion attractions={this.state.attractions} />
                 ),
+                end: true,
               },
             ]}
           />

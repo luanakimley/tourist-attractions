@@ -60,7 +60,7 @@ class AttractionBox extends Component {
             onEditChange={this.props.onEditChange}
             onEdit={this.props.onEdit}
             editModeEnabled={this.props.editModeEnabled}
-            closeForm={this.handleEditButtonClick.bind(this)}
+            closeForm={this.handleEditButtonClick}
           />
         ) : null}
       </div>

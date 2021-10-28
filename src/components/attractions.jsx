@@ -145,8 +145,8 @@ class Attractions extends Component {
                   <AddForm
                     countiesList={this.props.countiesList}
                     onFormChange={this.handleChange}
-                    onAddFormClick={this.handleAddFormClick.bind(this)}
-                    onAdd={this.handleAttractionsAdd.bind(this)}
+                    onAddFormClick={this.handleAddFormClick}
+                    onAdd={this.handleAttractionsAdd}
                   />
                 ) : null}
               </div>
@@ -174,9 +174,9 @@ class Attractions extends Component {
                   county={this.props.county}
                   keys={index}
                   attraction={attraction}
-                  onDelete={this.handleDelete.bind(this)}
+                  onDelete={this.handleDelete}
                   onEditChange={this.handleChange}
-                  onEdit={this.handleModify.bind(this)}
+                  onEdit={this.handleModify}
                 />
               ))}
             </div>

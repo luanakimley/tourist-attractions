@@ -162,6 +162,7 @@ $red: #d92616;
   position: fixed;
   bottom: 50px;
   right: 50px;
+  z-index: 999;
   background-color: $green;
   i {
     font-size: 25px;

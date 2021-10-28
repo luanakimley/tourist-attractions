@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Attractions from "./attractions";
-import NavBar from "./navbar";
 import AttractionSuggestionChatBot from "./chatbot";
 
 class Home extends Component {

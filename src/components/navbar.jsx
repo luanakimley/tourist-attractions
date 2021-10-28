@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 
 class NavBar extends Component {
   constructor(props) {
@@ -17,9 +18,9 @@ class NavBar extends Component {
             <nav id="navbar" className="navbar">
               <ul>
                 <li>
-                  <a className="nav-link scrollto active" href="index.html">
-                    Home
-                  </a>
+                  <Link to="/">
+                    <a className="nav-link scrollto active">Home</a>
+                  </Link>
                 </li>
                 <li className="dropdown">
                   <a href="#">
@@ -34,9 +35,9 @@ class NavBar extends Component {
                   </ul>
                 </li>
                 <li>
-                  <a className="nav-link scrollto" href="#contact">
-                    Contact
-                  </a>
+                  <Link to="/review">
+                    <a className="nav-link scrollto">Review</a>
+                  </Link>
                 </li>
                 <form
                   id="searchBar"
@@ -61,4 +62,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

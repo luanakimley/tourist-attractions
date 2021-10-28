@@ -18,7 +18,7 @@ class AddForm extends React.Component {
           ))}
         </select>
         <label htmlFor="text">
-          URL <em>(optiona)</em>
+          URL <em>(optional)</em>
         </label>
         <input type="text" name="url" onChange={this.props.onFormChange} />
         <label htmlFor="text">

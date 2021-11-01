@@ -13,7 +13,7 @@ class NavBar extends Component {
         <header id="header" className="fixed-top">
           <div className="container d-flex align-items-center justify-content-between">
             <h1 className="logo">
-              <a href="index.html">Irish Tourist Attractions</a>
+              <a>Irish Tourist Attractions</a>
             </h1>
             <nav id="navbar" className="navbar">
               <ul>

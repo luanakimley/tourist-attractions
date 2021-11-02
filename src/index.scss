@@ -3,6 +3,13 @@ $lightgreen: #3bad46;
 $darkgreen: #135923;
 $red: #d92616;
 
+#loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 #hero {
   .icon-box {
     width: 500px;

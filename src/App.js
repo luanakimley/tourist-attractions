@@ -73,7 +73,7 @@ class App extends React.Component {
 
   render() {
     return this.state.loading ? (
-      <div className="d-flex align-items-center justify-content-center">
+      <div id="loading">
         <h3>Loading...</h3>
       </div>
     ) : (

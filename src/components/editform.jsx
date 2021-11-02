@@ -1,6 +1,6 @@
 import React from "react";
 
-class EditForm extends React.Component {
+class EditForm extends Component {
   render() {
     return (
       <div id="editForm">

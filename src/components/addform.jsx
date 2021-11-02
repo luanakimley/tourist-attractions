@@ -1,6 +1,6 @@
 import React from "react";
 
-class AddForm extends React.Component {
+class AddForm extends Component {
   render() {
     return (
       <div id="addForm" className="container d-flex flex-column w-25">

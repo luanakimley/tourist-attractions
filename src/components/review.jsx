@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { StarRatingInput, StarRating, css } from "react-star-rating-input";
 
 class Review extends Component {
   render() {
@@ -13,6 +14,7 @@ class Review extends Component {
                     <h1 class="pt-4">4.0</h1>
                     <p class="">out of 5</p>
                   </div>
+                  <StarRatingInput value={5} />
                   <div>
                     <span class="fa fa-star star-active mx-1"></span>
                     <span class="fa fa-star star-active mx-1"></span>

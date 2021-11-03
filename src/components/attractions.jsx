@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import AttractionBox from "./attractionbox";
 import AddForm from "./addform";
+import PropTypes from "prop-types";
 
 class Attractions extends Component {
+  static propTypes = {
+    attractions: PropTypes.array,
+    county: PropTypes.string,
+    countiesList: PropTypes.array,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -169,8 +176,8 @@ class Attractions extends Component {
             <div className="row icon-boxes">
               {this.props.attractions.map((attraction, index) => (
                 <AttractionBox
-                  countiesList={this.props.countiesList}
                   key={index}
+                  countiesList={this.props.countiesList}
                   county={this.props.county}
                   keys={index}
                   attraction={attraction}

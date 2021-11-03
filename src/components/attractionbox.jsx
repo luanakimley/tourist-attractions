@@ -1,7 +1,18 @@
 import React, { Component } from "react";
 import EditForm from "./editform";
+import PropTypes from "prop-types";
 
 class AttractionBox extends Component {
+  static propTypes = {
+    countiesList: PropTypes.array,
+    county: PropTypes.string,
+    keys: PropTypes.number,
+    attraction: PropTypes.object,
+    onDelete: PropTypes.func,
+    onEditChange: PropTypes.func,
+    onEdit: PropTypes.func,
+  };
+
   state = {
     showEditForm: false,
   };
@@ -59,7 +70,6 @@ class AttractionBox extends Component {
             countiesList={this.props.countiesList}
             onEditChange={this.props.onEditChange}
             onEdit={this.props.onEdit}
-            editModeEnabled={this.props.editModeEnabled}
             closeForm={this.handleEditButtonClick}
           />
         ) : null}

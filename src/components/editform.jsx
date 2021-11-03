@@ -1,6 +1,15 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class EditForm extends Component {
+  static propTypes = {
+    keys: PropTypes.string,
+    countiesList: PropTypes.array,
+    onEditChange: PropTypes.func,
+    onEdit: PropTypes.func,
+    closeForm: PropTypes.func,
+  };
+
   render() {
     return (
       <div id="editForm">
@@ -26,7 +35,7 @@ class EditForm extends Component {
 
         <label htmlFor="text">URL</label>
         <br />
-        <input type="text" name="editUrl" onChange={this.props.onFormChange} />
+        <input type="text" name="editUrl" onChange={this.props.onEditChange} />
         <br />
 
         <label htmlFor="text">Latitude</label>
@@ -34,7 +43,7 @@ class EditForm extends Component {
         <input
           type="text"
           name="editLatitude"
-          onChange={this.props.onFormChange}
+          onChange={this.props.onEditChange}
         />
         <br />
 
@@ -43,7 +52,7 @@ class EditForm extends Component {
         <input
           type="text"
           name="editLongitude"
-          onChange={this.props.onFormChange}
+          onChange={this.props.onEditChange}
         />
 
         <button

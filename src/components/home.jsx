@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import Attractions from "./attractions";
 import AttractionSuggestionChatBot from "./chatbot";
+import PropTypes from "prop-types";
 
 class Home extends Component {
+  static propTypes = {
+    attractions: PropTypes.array,
+    counties: PropTypes.array,
+    selectedCounty: PropTypes.string,
+    selectedAttractions: PropTypes.array,
+  };
+
   state = {
     attractions: this.props.attractions,
     counties: this.props.counties,

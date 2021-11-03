@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
+import PropTypes from "prop-types";
 
 const theme = {
   background: "#f5f8fb",
@@ -39,6 +40,11 @@ class AttractionSuggestion extends Component {
 }
 
 class AttractionSuggestionChatBot extends Component {
+  static propTypes = {
+    attractions: PropTypes.array,
+    closeChat: PropTypes.func,
+  };
+
   constructor(props) {
     super(props);
     this.state = {

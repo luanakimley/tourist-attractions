@@ -1,6 +1,14 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class AddForm extends Component {
+  static propTypes = {
+    countiesList: PropTypes.array,
+    onFormChange: PropTypes.func,
+    onAddFormClick: PropTypes.func,
+    onAdd: PropTypes.func,
+  };
+
   render() {
     return (
       <div id="addForm" className="container d-flex flex-column w-25">

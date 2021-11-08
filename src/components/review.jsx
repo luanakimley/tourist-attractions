@@ -1,130 +1,119 @@
 import React, { Component } from "react";
-import { StarRatingInput, StarRating, css } from "react-star-rating-input";
+import StarRating from "./rating";
 
 class Review extends Component {
   render() {
+    function log(value) {
+      console.log(value);
+    }
     return (
-      <div class="container-fluid px-1 py-5 mx-auto">
-        <div class="row justify-content-center">
-          <div class="col-xl-7 col-lg-8 col-md-10 col-12 text-center mb-5">
-            <div class="card">
-              <div class="row justify-content-left d-flex">
-                <div class="col-md-4 d-flex flex-column">
-                  <div class="rating-box">
-                    <h1 class="pt-4">4.0</h1>
-                    <p class="">out of 5</p>
-                  </div>
-                  <StarRatingInput value={5} />
-                  <div>
-                    <span class="fa fa-star star-active mx-1"></span>
-                    <span class="fa fa-star star-active mx-1"></span>
-                    <span class="fa fa-star star-active mx-1"></span>
-                    <span class="fa fa-star star-active mx-1"></span>
-                    <span class="fa fa-star star-inactive mx-1"></span>
+      <div className="container-fluid px-1 py-5 mx-auto">
+        <div className="row justify-content-center">
+          <div className="col-xl-7 col-lg-8 col-md-10 col-12 text-center mb-5">
+            <h2>Review</h2>
+            <div className="card">
+              <div className="row justify-content-left d-flex">
+                <div className="col-md-4 d-flex flex-column">
+                  <div className="rating-box">
+                    <h1 className="pt-4">4.0</h1>
+                    <p className="">out of 5</p>
                   </div>
                 </div>
-                <div class="col-md-8">
-                  <div class="rating-bar0 justify-content-center">
-                    <table class="text-left mx-auto">
+                <div className="col-md-8">
+                  <div className="rating-bar0 justify-content-center">
+                    <table className="text-left mx-auto">
                       <tr>
-                        <td class="rating-label">Excellent</td>
-                        <td class="rating-bar">
-                          <div class="bar-container">
-                            <div class="bar-5"></div>
+                        <td className="rating-label">Excellent</td>
+                        <td className="rating-bar">
+                          <div className="bar-container">
+                            <div className="bar-5"></div>
                           </div>
                         </td>
-                        <td class="text-right">123</td>
+                        <td className="text-right">123</td>
                       </tr>
                       <tr>
-                        <td class="rating-label">Good</td>
-                        <td class="rating-bar">
-                          <div class="bar-container">
-                            <div class="bar-4"></div>
+                        <td className="rating-label">Good</td>
+                        <td className="rating-bar">
+                          <div className="bar-container">
+                            <div className="bar-4"></div>
                           </div>
                         </td>
-                        <td class="text-right">23</td>
+                        <td className="text-right">23</td>
                       </tr>
                       <tr>
-                        <td class="rating-label">Average</td>
-                        <td class="rating-bar">
-                          <div class="bar-container">
-                            <div class="bar-3"></div>
+                        <td className="rating-label">Average</td>
+                        <td className="rating-bar">
+                          <div className="bar-container">
+                            <div className="bar-3"></div>
                           </div>
                         </td>
-                        <td class="text-right">10</td>
+                        <td className="text-right">10</td>
                       </tr>
                       <tr>
-                        <td class="rating-label">Poor</td>
-                        <td class="rating-bar">
-                          <div class="bar-container">
-                            <div class="bar-2"></div>
+                        <td className="rating-label">Poor</td>
+                        <td className="rating-bar">
+                          <div className="bar-container">
+                            <div className="bar-2"></div>
                           </div>
                         </td>
-                        <td class="text-right">3</td>
+                        <td className="text-right">3</td>
                       </tr>
                       <tr>
-                        <td class="rating-label">Terrible</td>
-                        <td class="rating-bar">
-                          <div class="bar-container">
-                            <div class="bar-1"></div>
+                        <td className="rating-label">Terrible</td>
+                        <td className="rating-bar">
+                          <div className="bar-container">
+                            <div className="bar-1"></div>
                           </div>
                         </td>
-                        <td class="text-right">0</td>
+                        <td className="text-right">0</td>
                       </tr>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="row d-flex">
-                <div class="">
+            <StarRating className="star" onChange={log} />
+            <div className="card">
+              <div className="row d-flex">
+                <div className="">
                   <img
-                    class="profile-pic"
+                    className="profile-pic"
                     src="https://i.imgur.com/V3ICjlm.jpg"
                   ></img>
                 </div>
-                <div class="d-flex flex-column">
-                  <h3 class="mt-2 mb-0">Mukesh Kumar</h3>
-                  <div>
-                    <p class="text-left">
-                      <span class="text-muted">4.0</span>
-                      <span class="fa fa-star star-active ml-3"></span>
-                      <span class="fa fa-star star-active"></span>
-                      <span class="fa fa-star star-active"></span>
-                      <span class="fa fa-star star-active"></span>
-                      <span class="fa fa-star star-inactive"></span>
-                    </p>
-                  </div>
+
+                <div className="d-flex flex-column">
+                  <h3 className="mt-2 mb-0">Mukesh Kumar</h3>
                 </div>
-                <div class="ml-auto">
-                  <p class="text-muted pt-5 pt-sm-3">10 Sept</p>
+                <div className="ml-auto">
+                  <p className="text-muted pt-5 pt-sm-3">10 Sept</p>
                 </div>
               </div>
-              <div class="row text-left">
-                <h4 class="blue-text mt-3">
+              <div className="row text-left">
+                <h4 className="blue-text mt-3">
                   "An awesome activity to experience"
                 </h4>
-                <p class="content">
+                <p className="content">
                   If you really enjoy spending your vacation 'on water' or would
                   like to try something new and exciting for the first time.
                 </p>
               </div>
-              <div class="row text-left">
-                <img class="pic" src="https://i.imgur.com/kjcZcfv.jpg" />
-                <img class="pic" src="https://i.imgur.com/SjBwAgs.jpg" />
-
-                <img class="pic" src="https://i.imgur.com/IgHpsBh.jpg" />
+            </div>
+            <div className="row text-left">
+              <div className="mountains">
+                <img className="pic" src="https://i.imgur.com/kjcZcfv.jpg" />
+                <img className="pic" src="https://i.imgur.com/SjBwAgs.jpg" />
+                <img className="pic" src="https://i.imgur.com/IgHpsBh.jpg" />
               </div>
-              <div class="row text-left mt-4">
-                <div class="like mr-3 vote">
-                  <img src="https://i.imgur.com/mHSQOaX.png" />
-                  <span class="blue-text pl-2">20</span>
-                </div>
-                <div class="unlike vote">
-                  <img src="https://i.imgur.com/bFBO3J7.png" />
-                  <span class="text-muted pl-2">4</span>
-                </div>
+            </div>
+            <div className="row text-left mt-4">
+              <div className="like mr-3 vote">
+                <img src="https://i.imgur.com/mHSQOaX.png" />
+                <span className="blue-text pl-2">20</span>
+              </div>
+              <div className="unlike vote">
+                <img src="https://i.imgur.com/bFBO3J7.png" />
+                <span className="text-muted pl-2">4</span>
               </div>
             </div>
           </div>

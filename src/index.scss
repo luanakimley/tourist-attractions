@@ -3,6 +3,43 @@ $lightgreen: #3bad46;
 $darkgreen: #135923;
 $red: #d92616;
 
+/** review star ***/
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  color: $lightgreen;
+}
+.off {
+  color: white;
+}
+
+body {
+  padding: 100px;
+}
+
+.mountains {
+  padding: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pic {
+  width: 80%;
+  padding: 5%;
+}
+
+.star {
+  margin-top: 5px;
+  width: 40%;
+}
+
+/** Main Page **/
+
 #loading {
   display: flex;
   align-items: center;

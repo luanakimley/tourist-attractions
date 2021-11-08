@@ -81,15 +81,15 @@ class Attractions extends Component {
     selectedItem.address.addressRegion = this.state.editCounty;
 
     if (this.state.editUrl.length > 0) {
-      selectedItem.address.addressLocality = this.state.editTown;
+      selectedItem.url = this.state.editUrl;
     }
 
     if (this.state.editLatitude.length > 0) {
-      selectedItem.address.addressLocality = this.state.editTown;
+      selectedItem.geo.latitude = this.state.editLatitude;
     }
 
     if (this.state.editLongitude.length > 0) {
-      selectedItem.address.addressLocality = this.state.editTown;
+      selectedItem.geo.longitude = this.state.editLongitude;
     }
 
     updatedAttractions[selectedIndex] = selectedItem;
